@@ -1,14 +1,17 @@
 package com.common.utils;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.tangkuo.vo.UserInfo;
 
 /**
  * 
@@ -55,4 +58,71 @@ public class TestList
 
 	}
 
+	/**
+	 * 
+	 * @Title: testBeanUtils
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @param 设定文件
+	 * @return void 返回类型
+	 * @throws
+	 */
+
+	@Test
+	public void testBeanUtils()
+	{
+		String dest = "";
+		String orig = "tangkuo";
+		try
+		{
+			BeanUtils.copyProperties(dest, orig);
+		} catch (IllegalAccessException | InvocationTargetException e)
+		{
+			e.printStackTrace();
+		}
+
+		LOG.info("1：====dest:" + dest + "====orig:" + orig);
+	}
+
+	/**
+	 * 
+	 * @Title: getPropertyByBeanUtils
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @param 设定文件
+	 * @return void 返回类型
+	 * @throws
+	 */
+	@Test
+	public void getPropertyByBeanUtils()
+	{
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserName("nyh");
+
+		try
+		{
+			BeanUtils.setProperty(userInfo, "userName", "tangkuo");
+			System.out.println("set userName:" + userInfo.getUserName());
+			String userName = null;
+			try
+			{
+				userName = BeanUtils.getProperty(userInfo, "userName");
+			} catch (NoSuchMethodException e)
+			{
+				e.printStackTrace();
+			}
+			LOG.info("====userName:" + userName);
+
+			Object userInfo2 = new UserInfo();
+			try
+			{
+				userInfo2 = BeanUtils.cloneBean(userInfo);
+			} catch (InstantiationException | NoSuchMethodException e)
+			{
+				e.printStackTrace();
+			}
+			LOG.info("userInfo2:" + JSON.toJSONString(userInfo2));
+		} catch (IllegalAccessException | InvocationTargetException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
