@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * 
  * @ClassName: TestList
@@ -32,13 +34,25 @@ public class TestList
 	public void testCollectionUtils()
 	{
 		List<String> list = new ArrayList<String>();
+		if (org.apache.commons.collections.CollectionUtils.isEmpty(list))
+		{
+			LOG.info("========" + list);
+		}
+
 		list.add("a");
 		list.add("b");
 		if (CollectionUtils.isNotEmpty(list))
 		{
 			System.out.println("====" + list);
-			LOG.info("---------" + list);
+			LOG.info("========-" + list);
 		}
 
+		// reverseArray 倒序
+		Object[] array =
+		{ 1, 3, 6, 9, 2, 5, 8 };
+		CollectionUtils.reverseArray(array);
+		LOG.info("========-" + JSON.toJSONString(array));
+
 	}
+
 }

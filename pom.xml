@@ -111,6 +111,14 @@
 	</profiles>
 
 	<dependencies>
+		<!-- json 工具包依赖 -->
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>${fastjson.version}</version>
+		</dependency>
+
 		<!-- commons 工具包依赖jar -->
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
 		<dependency>
@@ -190,6 +198,7 @@
 		<slf4j.version>1.7.5</slf4j.version>
 		<mockito.version>2.7.14</mockito.version>
 		<logback.version>1.1.7</logback.version>
+		<fastjson.version>1.2.32</fastjson.version>
 
 	</properties>
 </project>
