@@ -28,15 +28,23 @@ public class CommonPropertyTest
 	private static final Logger LOG = LoggerFactory.getLogger(CommonPropertyTest.class);
 	private static CommonProperty commonProperty;
 
-	@SuppressWarnings(
-	{ "static-access", "deprecation" })
+	/**
+	 * 
+	 * @Title: testLoadProerty
+	 * @Description: TODO(调用读取配置文件工具类方法测试)
+	 * @param 设定文件
+	 * @return void 返回类型
+	 * @throws
+	 */
 	@Test
 	public void testLoadProerty()
 	{
+		@SuppressWarnings("static-access")
 		Properties ps = commonProperty.getProps();
+		@SuppressWarnings("static-access")
 		String jdbcUserName = commonProperty.getValue("jdbc.username");
 		LOG.info("---------" + jdbcUserName);
-		System.out.println(ps +"======" + jdbcUserName);
+		System.out.println(ps + "======" + jdbcUserName);
 		Assert.assertEquals("tangkuo", jdbcUserName);
 
 	}
