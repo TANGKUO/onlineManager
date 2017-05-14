@@ -2,6 +2,7 @@ package com.tangkuo.thread;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.tangkuo.vo.UserInfo;
 
 /**
  * 
@@ -23,16 +25,31 @@ import com.alibaba.fastjson.JSON;
 public class ThreadPool3
 {
 	private static final Logger LOG = LoggerFactory.getLogger(ThreadPool.class);
+	private static final int nThreads = 3;// 线程池中最大线程数,可以读取配置文件优化
+	private static final UserInfo userInfo = new UserInfo();
 
 	public static void main(String[] args)
 	{
-		ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
+		ExecutorService cachedThreadPool = Executors.newFixedThreadPool(nThreads);
 		final List<Future<String>> resultList = new ArrayList<Future<String>>();
-		for (int i = 0; i < 5; i++)
+		int number = 5;// 发起多线程次数,具体业务中符合指定条件的值
+
+		CountDownLatch cdl = new CountDownLatch(number);// 多线程计数器
+		for (int i = 0; i < number; i++)
 		{
-			final Future<String> future = cachedThreadPool.submit(new MyCallable2());
+			cdl = new CountDownLatch(i);
+
+			/*
+			 * userInfo.setAge(i);// userInfo 可以具体赋值。
+			 * userInfo.setUserName(Thread.currentThread().getName());
+			 * userInfo.setUserId(Thread.currentThread().getId());
+			 * userInfo.setEmailAddress
+			 * (Thread.currentThread().getThreadGroup().getName());
+			 */
+			final Future<String> future = cachedThreadPool.submit(new MyCallable3(userInfo, cdl));
 			resultList.add(future);
+			cdl.countDown();
 		}
 		LOG.info("========================================");
 		final List<String> list = new ArrayList<String>();
@@ -45,6 +62,8 @@ public class ThreadPool3
 					;// Future返回如果没有完成，则一直循环等待，直到Future返回完成
 				LOG.info(fs.get()); // 打印各个线程（任务）执行的结果
 				list.add(fs.get());
+				// cdl.toString();
+				// cdl.countDown();
 			} catch (InterruptedException e)
 			{
 				e.printStackTrace();
@@ -57,6 +76,7 @@ public class ThreadPool3
 				cachedThreadPool.shutdown();
 			}
 		}
+
 		LOG.info("=======list:" + JSON.toJSONString(list));
 	}
 
