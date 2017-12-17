@@ -10,7 +10,7 @@ import java.util.Map;
  * <p>Description: 权限list</p>
  * <p>Company: www.tk.com</p> 
  * @param <T>  
- * @author   tangkuo
+ * @author   tangkuo 
  * @date    2017年3月26日 上午9:27:18
  */
 public class AuthList<T> {
