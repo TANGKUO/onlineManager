@@ -15,7 +15,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 银行卡图片认证接口测试demo
+ * 印刷文字识别-银行卡识别  接口测试demo
  * 
  * AppKey：24765914 AppSecret：6cde05a0fd65af6e9366a534a2f36027 复制
  * AppCode：45d0a8c0ba9f4863b35f8dd4d0efcb57
