@@ -1,6 +1,6 @@
-package com.tangkuo.cn.java.concurrency.in.practice2;
+package com.tangkuo.cn.java.concurrency.in.practice;
 
-import static com.tangkuo.cn.java.concurrency.in.practice2.LaunderThrowable.launderThrowable;
+import static com.tangkuo.cn.java.concurrency.in.practice.LaunderThrowable.launderThrowable;
 
 import java.util.concurrent.*;
 

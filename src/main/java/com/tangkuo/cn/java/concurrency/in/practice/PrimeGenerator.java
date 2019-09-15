@@ -1,4 +1,4 @@
-package com.tangkuo.cn.java.concurrency.in.practice2;
+package com.tangkuo.cn.java.concurrency.in.practice;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import java.math.BigInteger;

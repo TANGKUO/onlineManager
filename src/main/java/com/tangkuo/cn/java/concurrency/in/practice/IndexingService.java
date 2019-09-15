@@ -1,4 +1,4 @@
-package com.tangkuo.cn.java.concurrency.in.practice2;
+package com.tangkuo.cn.java.concurrency.in.practice;
 
 import java.io.File;
 import java.io.FileFilter;

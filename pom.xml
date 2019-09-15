@@ -223,7 +223,23 @@
 			<artifactId>sdk-core-java</artifactId>
 			<version>1.0.4</version>
 		</dependency>
+<!-- 20190831 购买java并发编程实战一书代码新增 start -->
+		<!-- https://mvnrepository.com/artifact/net.jcip/jcip-annotations -->
+		<dependency>
+			<groupId>net.jcip</groupId>
+			<artifactId>jcip-annotations</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.0</version>
+			<scope>provided</scope>
+		</dependency>
 
+		
+		<!-- 20190831 购买java并发编程实战一书代码新增 end -->
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

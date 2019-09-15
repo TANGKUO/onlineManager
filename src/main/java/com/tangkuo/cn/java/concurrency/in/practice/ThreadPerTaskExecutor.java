@@ -1,4 +1,4 @@
-package com.tangkuo.cn.java.concurrency.in.practice2;
+package com.tangkuo.cn.java.concurrency.in.practice;
 
 import java.util.concurrent.*;
 

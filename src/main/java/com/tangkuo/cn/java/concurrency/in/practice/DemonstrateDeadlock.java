@@ -1,9 +1,9 @@
-package com.tangkuo.cn.java.concurrency.in.practice2;
+package com.tangkuo.cn.java.concurrency.in.practice;
 
 import java.util.*;
 
-import com.tangkuo.cn.java.concurrency.in.practice2.DynamicOrderDeadlock.Account;
-import com.tangkuo.cn.java.concurrency.in.practice2.DynamicOrderDeadlock.DollarAmount;
+import com.tangkuo.cn.java.concurrency.in.practice.DynamicOrderDeadlock.Account;
+import com.tangkuo.cn.java.concurrency.in.practice.DynamicOrderDeadlock.DollarAmount;
 
 /**
  * DemonstrateDeadlock
